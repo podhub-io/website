@@ -15,9 +15,24 @@ class Base(db.Model):
 
 
 class User(Base):
-    username = db.Column(db.String(80), unique=True)
-    email = db.Column(db.String(120), unique=True)
+    profile = db.relationship('Profile', backref='user', lazy='dynamic',
+                              uselist=False)
 
     def __init__(self, username, email):
         self.username = username
         self.email = email
+
+
+class Profile(Base):
+    username = db.Column(db.String(80), index=True, unique=True)
+    email = db.Column(db.String(120), index=True, unique=True)
+    display_name = db.Column(db.String(80), index=True, unique=True)
+    user_id = db.Column(UUID, db.ForeignKey('user.id'))
+
+    def __init__(self, username, email, display_name=None):
+        self.username = username
+        self.email = email
+        if not display_name:
+            self.display_name = username
+        else:
+            self.display_name = display_name
