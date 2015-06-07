@@ -15,9 +15,10 @@ class Profile(Base):
     first_name = db.Column(db.String(80), index=True)
     last_name = db.Column(db.String(80), index=True)
     user_id = db.Column(UUID, db.ForeignKey('user.id'))
+    author_id = db.Column(UUID, db.ForeignKey('author.id'))
 
     def __init__(self, username, email, first_name=None, last_name=None,
-                 display_name=None):
+                 display_name=None, user_id=None, author_id=None):
         self.username = username
         self.email = email
         if not display_name:
@@ -26,3 +27,15 @@ class Profile(Base):
             self.display_name = display_name
         self.first_name = first_name
         self.last_name = last_name
+
+        self.user_id = user_id
+        self.author_id = author_id
+
+
+class Author(Base):
+    name = db.Column(db.String(80), index=True)
+    Profile = db.relationship('Profile', backref='author', lazy='dynamic',
+                              uselist=False)
+
+    def __init__(self, name):
+        self.name = name
