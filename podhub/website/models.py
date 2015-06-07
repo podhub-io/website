@@ -18,10 +18,6 @@ class User(Base):
     profile = db.relationship('Profile', backref='user', lazy='dynamic',
                               uselist=False)
 
-    def __init__(self, username, email):
-        self.username = username
-        self.email = email
-
 
 class Profile(Base):
     username = db.Column(db.String(80), index=True, unique=True)
