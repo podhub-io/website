@@ -1,3 +1,5 @@
+from sqlalchemy.dialects.postgresql import UUID
+from podhub.website import db
 from . import Base
 
 
