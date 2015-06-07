@@ -34,7 +34,16 @@ class Profile(Base):
 
 class Author(Base):
     name = db.Column(db.String(80), index=True)
-    Profile = db.relationship('Profile', backref='author', lazy='dynamic',
+    profile = db.relationship('Profile', backref='author', lazy='dynamic',
+                              uselist=False)
+
+    def __init__(self, name):
+        self.name = name
+
+
+class Publisher(Base):
+    name = db.Column(db.String(80), index=True)
+    profile = db.relationship('Profile', backref='publisher', lazy='dynamic',
                               uselist=False)
 
     def __init__(self, name):
