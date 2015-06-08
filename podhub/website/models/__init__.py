@@ -13,5 +13,6 @@ class Base(db.Model):
 
     __mapper_args__ = {'order_by': sqlalchemy.desc('updated_at')}
 
+
 class Common(object):
     languages = frozenset(['en'])
