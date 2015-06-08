@@ -12,3 +12,6 @@ class Base(db.Model):
         sqlalchemy.DateTime(), default=now(), onupdate=now())
 
     __mapper_args__ = {'order_by': sqlalchemy.desc('updated_at')}
+
+class Common(object):
+    languages = frozenset(['en'])

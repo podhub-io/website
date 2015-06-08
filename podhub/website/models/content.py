@@ -1,6 +1,6 @@
 from sqlalchemy.dialects.postgresql import UUID
 from podhub.website import db
-from . import Base
+from . import Base, Common
 
 
 tags = db.Table(
@@ -9,8 +9,9 @@ tags = db.Table(
     db.Column('podcast_id', UUID, db.ForeignKey('podcast.id'))
 )
 
+
 class Podcast(Base):
-    language = db.Column(db.String(80))
+    language = db.Column(db.Enum(*Common.languages))
     subtitle = db.Column(db.String(80))
     summary = db.Column(db.Text)
     title = db.Column(db.String(80))
