@@ -44,4 +44,7 @@ setup(
         'SQLAlchemy==1.0.4',
         'Werkzeug==0.10.4',
     ],
+    scripts=[
+        'scripts/podhub_site',
+    ],
 )
