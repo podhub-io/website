@@ -43,6 +43,7 @@ setup(
         'MarkupSafe==0.23',
         'SQLAlchemy==1.0.4',
         'Werkzeug==0.10.4',
+        'podhub.meh==0.0.111',
     ],
     scripts=[
         'scripts/podhub_site',
