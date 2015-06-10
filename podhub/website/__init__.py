@@ -2,10 +2,7 @@ from flask.ext.script import Manager
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.migrate import Migrate, MigrateCommand
 from podhub.meh import Meh
-from pkgutil import extend_path
 
-
-__path__ = extend_path(__path__, __name__)
 
 _config = {
     'DB_PASSWORD': 'ni0Thoug uti1Dei7 geoShah4 wie1Ahch',
