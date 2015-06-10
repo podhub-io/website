@@ -12,7 +12,7 @@ tags = db.Table(
 
 class Podcast(Base, db.Model):
     __tablename__ = 'podcast'
-    language = db.Column(db.Enum(*Common.languages))
+    language = db.Column(db.Enum(*Common.languages, name='languages'))
     subtitle = db.Column(db.String(80))
     summary = db.Column(db.Text)
     title = db.Column(db.String(80))
