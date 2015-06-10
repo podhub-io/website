@@ -44,6 +44,7 @@ setup(
         'SQLAlchemy==1.0.4',
         'Werkzeug==0.10.4',
         'podhub.meh==0.1.12',
+        'mysqlclient==1.3.6',
     ],
     scripts=[
         'scripts/podhub_site',
