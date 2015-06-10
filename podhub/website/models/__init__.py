@@ -4,7 +4,7 @@ import uuid
 from .. import db
 
 
-class Base(db.Model):
+class Base(object):
     id = db.Column(UUID, default=lambda: str(uuid.uuid4()), primary_key=True)
     created_at = db.Column(db.DateTime(), default=sqlalchemy.func.now())
     updated_at = db.Column(
@@ -16,3 +16,6 @@ class Base(db.Model):
 
 class Common(object):
     languages = frozenset(['en'])
+
+
+from . import content, users
