@@ -10,7 +10,7 @@ _config = {
     'DB_DATABASE': 'mehdev',
     'DB_HOST': 'localhost',
 }
-_config['SQLALCHEMY_DATABASE_URI'] = 'mysql://{}:{}@{}/{}'.format(
+_config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@{}/{}'.format(
     _config.get('DB_USER'), _config.get('DB_PASSWORD'),
     _config.get('DB_HOST'), _config.get('DB_DATABASE'))
 
