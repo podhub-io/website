@@ -17,13 +17,6 @@ _config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@{}/{}'.format(
 app = Meh(__name__, config=_config).app
 db = SQLAlchemy(app)
 
-
-class CustomAlchemy(SQLAlchemy):
-    def make_declarative_base(self):
-        base = declarative_base()
-        return base
-
-
 migrate = Migrate(app, db)
 
 manager = Manager(app)
