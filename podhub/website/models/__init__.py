@@ -18,4 +18,5 @@ class Common(object):
     languages = frozenset(['en'])
 
 
-from . import content, users
+from .content import *
+from .users import *
