@@ -19,7 +19,7 @@ class Podcast(Base, db.Model):
     rights = db.Column(db.Text)
     link = db.Column(db.String(2048))
 
-    tags = db.relationship('Tag', backref=db.backref('podcasts',
+    tags = db.relationship('Tag', backref=db.backref('podcast',
                                                      lazy='dynamic'),
                            lazy='dynamic', secondary=tags)
     image = db.relationship('Image', backref='podcast', lazy='dynamic',
